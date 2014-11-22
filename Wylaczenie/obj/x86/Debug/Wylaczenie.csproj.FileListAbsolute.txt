@@ -1,0 +1,8 @@
+E:\Dropbox\C SHARP\Wylaczenie\Wylaczenie\bin\Debug\Wylaczenie.exe
+E:\Dropbox\C SHARP\Wylaczenie\Wylaczenie\bin\Debug\Wylaczenie.pdb
+E:\Dropbox\C SHARP\Wylaczenie\Wylaczenie\obj\x86\Debug\WindowsFormsApplication1.Form1.resources
+E:\Dropbox\C SHARP\Wylaczenie\Wylaczenie\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
+E:\Dropbox\C SHARP\Wylaczenie\Wylaczenie\obj\x86\Debug\Wylaczenie.csproj.GenerateResource.Cache
+E:\Dropbox\C SHARP\Wylaczenie\Wylaczenie\obj\x86\Debug\Wylaczenie.exe
+E:\Dropbox\C SHARP\Wylaczenie\Wylaczenie\obj\x86\Debug\Wylaczenie.pdb
+E:\Dropbox\C SHARP\Wylaczenie\Wylaczenie\obj\x86\Debug\Wylaczenie.csprojResolveAssemblyReference.cache
