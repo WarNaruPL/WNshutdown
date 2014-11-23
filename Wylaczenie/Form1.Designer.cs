@@ -38,7 +38,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.leftTime = new System.Windows.Forms.Label();
             this.Start = new System.Windows.Forms.Button();
-            this.Restart = new System.Windows.Forms.RadioButton();
+            this.Wyloguj = new System.Windows.Forms.RadioButton();
             this.Wylaczenie = new System.Windows.Forms.RadioButton();
             this.Hibernacja = new System.Windows.Forms.RadioButton();
             this.rodzaje = new System.Windows.Forms.GroupBox();
@@ -158,16 +158,15 @@
             this.Start.UseVisualStyleBackColor = true;
             this.Start.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Restart
+            // Wyloguj
             // 
-            this.Restart.AutoSize = true;
-            this.Restart.Enabled = false;
-            this.Restart.Location = new System.Drawing.Point(35, 15);
-            this.Restart.Name = "Restart";
-            this.Restart.Size = new System.Drawing.Size(59, 17);
-            this.Restart.TabIndex = 8;
-            this.Restart.Text = "Restart";
-            this.Restart.UseVisualStyleBackColor = true;
+            this.Wyloguj.AutoSize = true;
+            this.Wyloguj.Location = new System.Drawing.Point(35, 15);
+            this.Wyloguj.Name = "Wyloguj";
+            this.Wyloguj.Size = new System.Drawing.Size(63, 17);
+            this.Wyloguj.TabIndex = 8;
+            this.Wyloguj.Text = "Wyloguj";
+            this.Wyloguj.UseVisualStyleBackColor = true;
             // 
             // Wylaczenie
             // 
@@ -195,7 +194,7 @@
             // rodzaje
             // 
             this.rodzaje.Controls.Add(this.Hibernacja);
-            this.rodzaje.Controls.Add(this.Restart);
+            this.rodzaje.Controls.Add(this.Wyloguj);
             this.rodzaje.Controls.Add(this.Wylaczenie);
             this.rodzaje.Location = new System.Drawing.Point(12, 205);
             this.rodzaje.Name = "rodzaje";
@@ -236,7 +235,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button Start;
         private System.Windows.Forms.Label leftTime;
-        private System.Windows.Forms.RadioButton Restart;
+        private System.Windows.Forms.RadioButton Wyloguj;
         private System.Windows.Forms.RadioButton Wylaczenie;
         private System.Windows.Forms.RadioButton Hibernacja;
         private System.Windows.Forms.GroupBox rodzaje;

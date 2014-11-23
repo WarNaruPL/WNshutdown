@@ -8,12 +8,19 @@ using System.Text;
 using System.Windows.Forms;
 using System.Timers;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
+
 
 namespace WindowsFormsApplication1
 {
 
+
     public partial class Form1 : Form
     {
+        [DllImport("user32")]
+        public static extern bool ExitWindowsEx(uint uFlags, uint dwReason); // odwołanie do bibloteki aby m.in wyłączyć komputer
+        Version win8version = new Version(6, 2, 9200, 0);// sprawdzanie wersji windows
+
         private static System.Timers.Timer aTimer;
         public static double czas_pozostaly = 0;
         public static string rodzaj = "s";
@@ -71,7 +78,7 @@ namespace WindowsFormsApplication1
                     blad += "Sekundy nie są numerem.\n";
                     powodzenie = false;
                 }
-                
+
 
                 if (Godziny.Checked == false)
                     h = 0;
@@ -80,7 +87,7 @@ namespace WindowsFormsApplication1
                 if (Sekundy.Checked == false)
                     s = 0;
 
-                    czas_pozostaly = h * 3600 + m * 60 + s; // Obliczanie czasu
+                czas_pozostaly = h * 3600 + m * 60 + s; // Obliczanie czasu
 
                 if (czas_pozostaly == 0 & powodzenie == true)
                 {
@@ -130,7 +137,7 @@ namespace WindowsFormsApplication1
             if (czas_pozostaly <= 0)
             {
                 aTimer.Enabled = false;
-                operacja();
+                operacja(Wyloguj.Checked, Wylaczenie.Checked, Hibernacja.Checked);
                 Application.Exit();
             }
             else
@@ -142,10 +149,22 @@ namespace WindowsFormsApplication1
                 });
             }
         }
-        public void operacja()
+        public void operacja(bool wyloguj, bool wylaczenie, bool hibernacja)
         {
-            MessageBox.Show("wylaczenie komputera");
-            //Process.Start("shutdown","/" + rodzaj + " /t 0");
+
+            if (wyloguj)
+                ExitWindowsEx(0, 0x00040000); // 0 - wylogowanie uzyttkownika, wartość 0x powód - wywołane przez aplikacje
+            if (wylaczenie)
+                if (Environment.OSVersion.Platform == PlatformID.Win32NT &&
+                    Environment.OSVersion.Version >= win8version)
+                {
+                    // To jest system win 8 lub nowszy i akcpetuje hybrydowe wyłączanie komputera
+                    ExitWindowsEx(0x00400000, 0x00040000);
+                }
+                else
+                    ExitWindowsEx(0x00000008, 0x00040000); // 0x - wylacznie komputera, wartość 0x powód - wywołane przez aplikacje
+            if (hibernacja) ;
+
         }
 
         private void MinutyInput_Leave(object sender, EventArgs e)

@@ -8,3 +8,9 @@ E:\Dropbox\C SHARP\Wylaczenie\Wylaczenie\obj\x86\Release\Wylaczenie.pdb
 E:\Dropbox\C SHARP\Wylaczenie\Wylaczenie\obj\x86\Release\Wylaczenie.csprojResolveAssemblyReference.cache
 E:\Dropbox\C SHARP\WNshutdown\Wylaczenie\obj\x86\Release\Wylaczenie.exe
 E:\Dropbox\C SHARP\WNshutdown\Wylaczenie\obj\x86\Release\Wylaczenie.pdb
+E:\Dropbox\C SHARP\WNshutdown\Wylaczenie\bin\Release\Wylaczenie.exe
+E:\Dropbox\C SHARP\WNshutdown\Wylaczenie\bin\Release\Wylaczenie.pdb
+E:\Dropbox\C SHARP\WNshutdown\Wylaczenie\obj\x86\Release\Wylaczenie.csprojResolveAssemblyReference.cache
+E:\Dropbox\C SHARP\WNshutdown\Wylaczenie\obj\x86\Release\WindowsFormsApplication1.Form1.resources
+E:\Dropbox\C SHARP\WNshutdown\Wylaczenie\obj\x86\Release\WindowsFormsApplication1.Properties.Resources.resources
+E:\Dropbox\C SHARP\WNshutdown\Wylaczenie\obj\x86\Release\Wylaczenie.csproj.GenerateResource.Cache
