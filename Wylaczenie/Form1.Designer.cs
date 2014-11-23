@@ -104,6 +104,7 @@
             this.GodzinyInput.Name = "GodzinyInput";
             this.GodzinyInput.Size = new System.Drawing.Size(80, 20);
             this.GodzinyInput.TabIndex = 4;
+            this.GodzinyInput.Leave += new System.EventHandler(this.GodzinyInput_Leave);
             // 
             // MinutyInput
             // 
@@ -111,6 +112,7 @@
             this.MinutyInput.Name = "MinutyInput";
             this.MinutyInput.Size = new System.Drawing.Size(80, 20);
             this.MinutyInput.TabIndex = 5;
+            this.MinutyInput.Leave += new System.EventHandler(this.MinutyInput_Leave);
             // 
             // SekundyInput
             // 
@@ -118,6 +120,7 @@
             this.SekundyInput.Name = "SekundyInput";
             this.SekundyInput.Size = new System.Drawing.Size(80, 20);
             this.SekundyInput.TabIndex = 6;
+            this.SekundyInput.Leave += new System.EventHandler(this.SekundyInput_Leave);
             // 
             // groupBox1
             // 
@@ -158,13 +161,13 @@
             // Restart
             // 
             this.Restart.AutoSize = true;
+            this.Restart.Enabled = false;
             this.Restart.Location = new System.Drawing.Point(35, 15);
             this.Restart.Name = "Restart";
             this.Restart.Size = new System.Drawing.Size(59, 17);
             this.Restart.TabIndex = 8;
             this.Restart.Text = "Restart";
             this.Restart.UseVisualStyleBackColor = true;
-            this.Restart.Click += new System.EventHandler(this.Restart_Click);
             // 
             // Wylaczenie
             // 
@@ -177,18 +180,17 @@
             this.Wylaczenie.TabStop = true;
             this.Wylaczenie.Text = "Wyłaczenie";
             this.Wylaczenie.UseVisualStyleBackColor = true;
-            this.Wylaczenie.Click += new System.EventHandler(this.Wylaczenie_Click);
             // 
             // Hibernacja
             // 
             this.Hibernacja.AutoSize = true;
+            this.Hibernacja.Enabled = false;
             this.Hibernacja.Location = new System.Drawing.Point(335, 15);
             this.Hibernacja.Name = "Hibernacja";
             this.Hibernacja.Size = new System.Drawing.Size(76, 17);
             this.Hibernacja.TabIndex = 10;
             this.Hibernacja.Text = "Hibernacja";
             this.Hibernacja.UseVisualStyleBackColor = true;
-            this.Hibernacja.Click += new System.EventHandler(this.Hibernacja_Click);
             // 
             // rodzaje
             // 

@@ -71,7 +71,17 @@ namespace WindowsFormsApplication1
                     blad += "Sekundy nie są numerem.\n";
                     powodzenie = false;
                 }
-                czas_pozostaly = h * 3600 + m * 60 + s; // Obliczanie czasu
+                
+
+                if (Godziny.Checked == false)
+                    h = 0;
+                if (Minuty.Checked == false)
+                    m = 0;
+                if (Sekundy.Checked == false)
+                    s = 0;
+
+                    czas_pozostaly = h * 3600 + m * 60 + s; // Obliczanie czasu
+
                 if (czas_pozostaly == 0 & powodzenie == true)
                 {
                     blad += "Nie ustawiono czasu";
@@ -90,6 +100,7 @@ namespace WindowsFormsApplication1
                     Sekundy.Enabled = false;
                     SekundyInput.Enabled = false;
 
+
                     aTimer.Enabled = true;
                     leftTime.Text = Convert.ToString(TimeSpan.FromSeconds(czas_pozostaly));
                     Start.Text = "Przerwij";
@@ -101,10 +112,13 @@ namespace WindowsFormsApplication1
                 aTimer.Enabled = false;
 
                 Godziny.Enabled = true;
+                Godziny.Checked = true;
                 GodzinyInput.Enabled = true;
                 Minuty.Enabled = true;
+                Minuty.Checked = true;
                 MinutyInput.Enabled = true;
                 Sekundy.Enabled = true;
+                Sekundy.Checked = true;
                 SekundyInput.Enabled = true;
             }
 
@@ -128,42 +142,34 @@ namespace WindowsFormsApplication1
                 });
             }
         }
-        
-        private void Wylaczenie_Click(object sender, EventArgs e)
-        {
-            if (Wylaczenie.Checked == false)
-            {
-                Wylaczenie.Checked = true;
-                Hibernacja.Checked = false;
-                Restart.Checked = false;
-                rodzaj = "s";
-            }
-        }
-
-        private void Restart_Click(object sender, EventArgs e)
-        {
-            if (Restart.Checked == false)
-            {
-                Wylaczenie.Checked = false;
-                Hibernacja.Checked = false;
-                Restart.Checked = true;
-                rodzaj = "r";
-            }
-        }
-
-        private void Hibernacja_Click(object sender, EventArgs e)
-        {
-            if (Hibernacja.Checked == false)
-            {
-                Wylaczenie.Checked = false;
-                Hibernacja.Checked = true;
-                Restart.Checked = false;
-                rodzaj = "h";
-            }
-        }
         public void operacja()
         {
-            Process.Start("shutdown","/" + rodzaj + " /t 0");// dodać osobno XP
+            MessageBox.Show("wylaczenie komputera");
+            //Process.Start("shutdown","/" + rodzaj + " /t 0");
+        }
+
+        private void MinutyInput_Leave(object sender, EventArgs e)
+        {
+            if (MinutyInput.Text != "" && Int32.Parse(MinutyInput.Text) < 0)
+                MinutyInput.Text = "0";
+            if (MinutyInput.Text != "" && Int32.Parse(MinutyInput.Text) > 59)
+                MinutyInput.Text = "59";
+        }
+
+        private void SekundyInput_Leave(object sender, EventArgs e)
+        {
+            if (SekundyInput.Text != "" && Int32.Parse(SekundyInput.Text) < 0)
+                SekundyInput.Text = "0";
+            if (SekundyInput.Text != "" && Int32.Parse(SekundyInput.Text) > 59)
+                SekundyInput.Text = "59";
+        }
+
+        private void GodzinyInput_Leave(object sender, EventArgs e)
+        {
+            if (GodzinyInput.Text != "" && Int32.Parse(GodzinyInput.Text) < 0)
+                GodzinyInput.Text = "0";
+            if (GodzinyInput.Text != "" && Int32.Parse(GodzinyInput.Text) > 240)
+                GodzinyInput.Text = "240";
         }
 
     }
