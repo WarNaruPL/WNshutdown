@@ -42,6 +42,7 @@
             this.Wylaczenie = new System.Windows.Forms.RadioButton();
             this.Hibernacja = new System.Windows.Forms.RadioButton();
             this.rodzaje = new System.Windows.Forms.GroupBox();
+            this.Uspienie = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.rodzaje.SuspendLayout();
             this.SuspendLayout();
@@ -161,7 +162,7 @@
             // Wyloguj
             // 
             this.Wyloguj.AutoSize = true;
-            this.Wyloguj.Location = new System.Drawing.Point(35, 15);
+            this.Wyloguj.Location = new System.Drawing.Point(23, 15);
             this.Wyloguj.Name = "Wyloguj";
             this.Wyloguj.Size = new System.Drawing.Size(63, 17);
             this.Wyloguj.TabIndex = 8;
@@ -172,19 +173,19 @@
             // 
             this.Wylaczenie.AutoSize = true;
             this.Wylaczenie.Checked = true;
-            this.Wylaczenie.Location = new System.Drawing.Point(185, 15);
+            this.Wylaczenie.Location = new System.Drawing.Point(119, 15);
             this.Wylaczenie.Name = "Wylaczenie";
             this.Wylaczenie.Size = new System.Drawing.Size(82, 17);
             this.Wylaczenie.TabIndex = 9;
             this.Wylaczenie.TabStop = true;
             this.Wylaczenie.Text = "Wyłaczenie";
             this.Wylaczenie.UseVisualStyleBackColor = true;
+            this.Wylaczenie.CheckedChanged += new System.EventHandler(this.Wylaczenie_CheckedChanged);
             // 
             // Hibernacja
             // 
             this.Hibernacja.AutoSize = true;
-            this.Hibernacja.Enabled = false;
-            this.Hibernacja.Location = new System.Drawing.Point(335, 15);
+            this.Hibernacja.Location = new System.Drawing.Point(339, 15);
             this.Hibernacja.Name = "Hibernacja";
             this.Hibernacja.Size = new System.Drawing.Size(76, 17);
             this.Hibernacja.TabIndex = 10;
@@ -193,6 +194,7 @@
             // 
             // rodzaje
             // 
+            this.rodzaje.Controls.Add(this.Uspienie);
             this.rodzaje.Controls.Add(this.Hibernacja);
             this.rodzaje.Controls.Add(this.Wyloguj);
             this.rodzaje.Controls.Add(this.Wylaczenie);
@@ -201,6 +203,17 @@
             this.rodzaje.Size = new System.Drawing.Size(460, 45);
             this.rodzaje.TabIndex = 11;
             this.rodzaje.TabStop = false;
+            // 
+            // Uspienie
+            // 
+            this.Uspienie.AutoSize = true;
+            this.Uspienie.Location = new System.Drawing.Point(240, 15);
+            this.Uspienie.Name = "Uspienie";
+            this.Uspienie.Size = new System.Drawing.Size(66, 17);
+            this.Uspienie.TabIndex = 11;
+            this.Uspienie.TabStop = true;
+            this.Uspienie.Text = "Uśpienie";
+            this.Uspienie.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -239,6 +252,7 @@
         private System.Windows.Forms.RadioButton Wylaczenie;
         private System.Windows.Forms.RadioButton Hibernacja;
         private System.Windows.Forms.GroupBox rodzaje;
+        private System.Windows.Forms.RadioButton Uspienie;
 
     }
 }

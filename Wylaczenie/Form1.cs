@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Timers;
 using System.Diagnostics;
-using System.Runtime.InteropServices;
+using System.Management;
 
 
 namespace WindowsFormsApplication1
@@ -17,8 +17,6 @@ namespace WindowsFormsApplication1
 
     public partial class Form1 : Form
     {
-        [DllImport("user32")]
-        public static extern bool ExitWindowsEx(uint uFlags, uint dwReason); // odwołanie do bibloteki aby m.in wyłączyć komputer
         Version win8version = new Version(6, 2, 9200, 0);// sprawdzanie wersji windows
 
         private static System.Timers.Timer aTimer;
@@ -137,7 +135,7 @@ namespace WindowsFormsApplication1
             if (czas_pozostaly <= 0)
             {
                 aTimer.Enabled = false;
-                operacja(Wyloguj.Checked, Wylaczenie.Checked, Hibernacja.Checked);
+                operacja(Wyloguj.Checked, Wylaczenie.Checked, Hibernacja.Checked,Uspienie.Checked);
                 Application.Exit();
             }
             else
@@ -149,22 +147,23 @@ namespace WindowsFormsApplication1
                 });
             }
         }
-        public void operacja(bool wyloguj, bool wylaczenie, bool hibernacja)
+        public void operacja(bool wyloguj, bool wylaczenie, bool hibernacja,bool uspienie)
         {
-
             if (wyloguj)
-                ExitWindowsEx(0, 0x00040000); // 0 - wylogowanie uzyttkownika, wartość 0x powód - wywołane przez aplikacje
-            if (wylaczenie)
+                ZarzadzanieUruchomieniem.Metoda(0);  //wylogowanie uzytkownika
+
+            else if (wylaczenie)
                 if (Environment.OSVersion.Platform == PlatformID.Win32NT &&
                     Environment.OSVersion.Version >= win8version)
                 {
-                    // To jest system win 8 lub nowszy i akcpetuje hybrydowe wyłączanie komputera
-                    ExitWindowsEx(0x00400000, 0x00040000);
+                    ZarzadzanieUruchomieniem.Metoda(1);  // To jest system win 8 lub nowszy i akcpetuje hybrydowe wyłączanie komputera(dodać trzeba)
                 }
                 else
-                    ExitWindowsEx(0x00000008, 0x00040000); // 0x - wylacznie komputera, wartość 0x powód - wywołane przez aplikacje
-            if (hibernacja) ;
-
+                    ZarzadzanieUruchomieniem.Metoda(1);            // wylacznie komputera
+            else if (hibernacja)
+                ZarzadzanieUruchomieniem.Metoda(3); // hibernacja systemu (o ile możliwa)
+            else if (uspienie)
+                ZarzadzanieUruchomieniem.Metoda(2);// uspienie systemu o ile mozliwe
         }
 
         private void MinutyInput_Leave(object sender, EventArgs e)
@@ -191,5 +190,10 @@ namespace WindowsFormsApplication1
                 GodzinyInput.Text = "240";
         }
 
+        private void Wylaczenie_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+	    
     }
 }

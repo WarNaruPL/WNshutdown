@@ -1,0 +1,4 @@
+1.2.0
+add hybrid shutdown for windows 8 
+1.1.1
+some bugfix
